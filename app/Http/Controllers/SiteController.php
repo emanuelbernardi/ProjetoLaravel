@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Categoria;
 
+use Illuminate\Support\Facades\Gate;
+
 class SiteController extends Controller
 {
     public function index()
@@ -18,6 +20,8 @@ class SiteController extends Controller
     public function details($id)
     {
         $produto = Produto::where('id', $id)->first();
+
+        Gate::authorize('ver-produto', $produto);
 
         return response(view('site.details', compact('produto')));
         

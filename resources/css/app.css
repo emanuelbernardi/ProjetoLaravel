@@ -1,0 +1,8 @@
+dix.container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: 10px solid; 
+    background:orangered
+    
+    }
