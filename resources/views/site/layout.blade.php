@@ -11,11 +11,16 @@
 
 </head>
 <body>
-    <ul id='dropdown1' class='dropdown-content'>
+      <ul id='dropdown1' class='dropdown-content'>
         @foreach($categoriasMenu as $categoria)
             <li><a href="{{route('site.categoria', $categoria->id)}}" >{{ $categoria->nome }}</a></li>
         @endforeach
 
+      </ul>
+
+      <ul id='dropdown2' class='dropdown-content'>
+        <li><a href="{{route('admin.dashboard')}}" >Dashboard</a></li>
+        <li><a href="{{route('login.logout')}}" >Logout</a></li>
       </ul>
 
     <nav class="orange">
@@ -26,6 +31,16 @@
             <li><a href="" class="dropdown-trigger" data-target='dropdown1'>categorias <i class="material-icons right">expand_more</i></a></li>
             <li><a href="{{route('site.carrinho')}}">Carrinho</a></li>
           </ul>
+
+          @auth
+            <ul id="nav-mobile" class="right">
+              <li><a href="" class="dropdown-trigger" data-target='dropdown2'>Olá {{auth()->user()->name}} <i class="material-icons right">expand_more</i></a></li>
+            </ul>
+          @else
+            <ul id="nav-mobile" class="right">
+              <li><a href="{{route('login.form')}}" >Login <i class="material-icons right">lock</i></a></li>
+            </ul>
+          @endauth
         </div>
       </nav>
 

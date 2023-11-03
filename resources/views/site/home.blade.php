@@ -5,18 +5,19 @@
 <div class="row container">
 
     @foreach ($produtos as $item)
-            <div class="col s12 m5">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
+                <div class="col s12 m5">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="https://picsum.photos/450/300">
                       <span class="card-title">{{Str::limit($item->nome, 20)}}</span>
                     </div>
-                    <div class="card-action">
-                        <span>{{$item->valor}}</span>
+                    <div class="card-content">
+                        <span>R$: {{number_format($item->valor, 2, ',', '.')}}</span>
                         <a href="{{route('site.details', $item->id)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
                     </div>
                   </div>
             </div>
-        
+
     @endforeach
 
 </div>

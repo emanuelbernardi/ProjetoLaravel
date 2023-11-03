@@ -20,7 +20,7 @@
             <input type="hidden" name="id" value="{{$produto->id}}">
             <input type="hidden" name="nome" value="{{$produto->nome}}">
             <input type="hidden" name="valor" value="{{$produto->valor}}">
-            <input type="number" name="quantidade" value="1">
+            <input type="number" min="1" name="quantidade" value="1">
         <button class="btn green btn-large"> Adicionar </button>
         </form>
     </div>
