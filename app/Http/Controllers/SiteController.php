@@ -21,8 +21,6 @@ class SiteController extends Controller
     {
         $produto = Produto::where('id', $id)->first();
 
-        Gate::authorize('ver-produto', $produto);
-
         return response(view('site.details', compact('produto')));
         
     }
